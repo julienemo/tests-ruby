@@ -8,6 +8,10 @@ describe "temperature conversion functions" do
       expect(ftoc(32)).to eq(0)
     end
 
+    it "doesn't convert string" do
+      expect(ftoc('moi')).to eq("That's not even a number!")
+    end
+
     it "converts boiling temperature" do
       expect(ftoc(212)).to eq(100)
     end
@@ -38,6 +42,11 @@ describe "temperature conversion functions" do
 
     it "converts body temperature" do
       expect(ctof(37)).to be_within(0.1).of(98.6)
+    end
+
+    it "doesn't convert string" do
+      expect(ftoc('moi')).to eq("That's not even a number!")
+    end
       # Why do we need to use be_within?
       # See http://www.ruby-forum.com/topic/169330
       # and http://en.wikipedia.org/wiki/IEEE_754-2008
@@ -45,6 +54,5 @@ describe "temperature conversion functions" do
       # Also, try "puts 0.5 - 0.4 - 0.1" -- pretty crazy, right?
     end
 
-  end
 
 end

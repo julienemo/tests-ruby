@@ -11,10 +11,3 @@ def time_string(given_time)
   end
   return "#{affiche[0]}:#{affiche[1]}:#{affiche[2]}"
 end
-
-
-
-
-
-
-puts time_string(4000)
