@@ -9,7 +9,8 @@ end
 # returns float
 def ctof(ctemp)
   ftemp = ctemp.to_f * 9 / 5 +32
-  return ctemp.to_f
+  return ftemp.to_f
 end
 
+puts ctof(0)
 # doubt : does the ctof return integer or float ???

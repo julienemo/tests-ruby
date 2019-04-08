@@ -38,8 +38,6 @@ describe "sum" do
   end
 end
 
-# Let's write some tests !
-# we'll show you the first, you will write the others :)
 
 describe "#multiply" do
 
@@ -47,23 +45,48 @@ describe "#multiply" do
     expect(multiply(3, 4)).to eq(12)
   end
 
-  it "multiplies two other numbers"
-    # one other test here, don't forget do end ;)
+  it "multiplies two other numbers" do
+    expect(multiply(5.6, 6.6)).to be_within(0.1).of(36.96)
+  end
 
-  it "multiplies two other numbers, one of them being 0"
-    # one last test, with 0 in it
+  it "multiplies two other numbers, one of them being 0" do
+    expect(multiply(7.77, 0)).to eq(0)
+  end
 
 end
 
-describe "#power" do
-  it "raises one number to the power of another number"
+describe "power" do
+  it "raises one number to the power of another number" do
+    expect(power(2,3)).to eq(8)
+  end
+  it "raises one number to the power of another number which is 0" do
+    expect(power(7,0)).to eq(1)
+  end
+  it "raises the number 0 to the power of another number" do
+    expect(power(0,7)).to eq(0)
+  end
+  it "raises one number to the power of another number which is negative" do
+    expect(power(7,-1)).to be_within(0.1).of(0.142857)
+  end
 end
 
 # http://en.wikipedia.org/wiki/Factorial
 describe "#factorial" do
-  it "computes the factorial of 0"
-  it "computes the factorial of 1"
-  it "computes the factorial of 2"
-  it "computes the factorial of 5"
-  it "computes the factorial of 10"
+
+  it "computes the factorial of 0" do
+    expect(fractorial(0)).to eq(1)
+  end
+  it "computes the factorial of 1" do
+    expect(fractorial(1)).to eq(1)
+  end
+  it "computes the factorial of 2" do
+    expect(fractorial(2)).to eq(2)
+  end
+  it "computes the factorial of 5" do
+    expect(fractorial(5)).to eq(120)
+  end
+
+  it "computes the factorial of 10"do
+    expect(fractorial(10)).to eq(3628800)
+  end
 end
