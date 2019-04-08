@@ -10,13 +10,13 @@ def repeat(string, times = 2)
   if times <= 1
     return "No, I am still gonna repeat.\n#{string} #{string}"
   else
-    return (string + " ") * times
+    return ((string+ " ") * times).gsub(/\s+$/, '')
   end
 end
 
 def start_of_word(string, position = 1)
   if position > string.length
-    return "Nope, can't do more than #{string.length}"
+    return "Nope, can't do more than #{string.length}!"
   else
   return string[0..position-1]
   end
@@ -28,10 +28,22 @@ def first_word(my_string)
   return word_array[0]
 end
 
+# the func titleize is usable with rails
+# below is a manual version
 def titleize(my_string)
-  return my_string.titlecase
+  stop_list = ['and', 'the', 'or', 'with', 'of', 'from', 'in', 'on', 'by', 'out']
+  return my_string.split(" ").each_with_index.map{|x, i|
+    if i == 0
+      x.capitalize
+    elsif stop_list.include?(x)
+      x
+    else
+      x.capitalize
+    end
+    }.join(" ")
 end
 
+=begin
 puts echo('hey')
 puts shout('hey')
 puts repeat('hey')
@@ -44,4 +56,5 @@ puts start_of_word('hey', 3)
 puts start_of_word("abcdefg", 45)
 puts first_word('Mary has a little lamb')
 puts titleize('hey')
-puts titleize('mary has a little lamb')
+puts titleize('the bridge over the river kwai')
+=end

@@ -12,5 +12,5 @@ def ctof(ctemp)
   return ftemp.to_f
 end
 
-puts ctof(0)
+
 # doubt : does the ctof return integer or float ???
